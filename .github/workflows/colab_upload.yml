@@ -1,1 +1,35 @@
+name: Auto Upload from Google Colab
+
+on:
+  workflow_dispatch:  # Allows manual trigger only (One-time use)
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.8'
+
+    - name: Install Dependencies
+      run: |
+        pip install gdown
+
+    - name: Download Data from Google Drive
+      run: |
+        gdown --folder "https://drive.google.com/drive/folders/1-7GtKpWrRxNmYtFVPPzt7M5jy8yZUWxL?usp=sharing" -O images/
+
+    - name: Commit and Push Changes with Custom Date
+      run: |
+        DATE="$(date +"%Y-%m-%d")"  # Automatically set current date
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add images/ *.ipynb || true  # Ensure no error if no notebooks exist
+        git commit -m "📦 Auto-Uploaded on $DATE" || echo "No changes to commit"
+        git push https://x-access-token:${{ secrets.GH_PAT }}@github.com/Arshiyan-Elahi/Student-Grades-Prediction-with-Machine-Learning.git main
 
