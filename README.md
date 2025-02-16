@@ -12,23 +12,6 @@ This project predicts student grades using machine learning techniques based on 
 
 ---
 
-## 📂 Folder Structure
-```
-📦 Student-Grades-Prediction
-├── data/  # Dataset Files
-│   ├── student-mat.csv  # Student performance dataset
-├── notebooks/  # Jupyter Notebooks for analysis and model training
-│   ├── student_grades_prediction.ipynb
-├── images/  # Visualizations and model output
-│   ├── actual_vs_predicted.png  # Scatter plot of actual vs predicted grades
-│   ├── feature_importance.png  # Importance of features
-│   ├── grade_distribution.png  # Histogram of final grades (G3)
-├── models/  # Trained machine learning models
-│   ├── grades_prediction_model.pkl
-├── README.md  # This file
-```
-
----
 
 ## 🔧 How It Works
 ### **Step 1: Load Dataset**
@@ -56,7 +39,7 @@ This project predicts student grades using machine learning techniques based on 
 ### **Locally on Your System**
 1. Clone the repository:
    ```sh
-   git clone https://github.com/YOUR_USERNAME/Student-Grades-Prediction.git
+   git clone https://github.com/Student-Grades-Prediction-with-Machine-LearningE/Student-Grades-Prediction.git
    ```
 2. Install dependencies:
    ```sh
