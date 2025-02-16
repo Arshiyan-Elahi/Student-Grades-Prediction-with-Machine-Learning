@@ -26,7 +26,6 @@ jobs:
 
     - name: Commit and Push Changes with Custom Date
       run: |
-        DATE="$(date +"%Y-%m-%d")"  # Automatically set current date
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add images/ *.ipynb || true  # Ensure no error if no notebooks exist
